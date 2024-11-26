@@ -1,8 +1,7 @@
 import view from './view.js';
 
-export default async function conversor() {
+async function executarConversao(moedaOrigem) {
 
-    let moedaOrigem = await view.obterMoedaOrigem();
     let moedaDestino = await view.obterMoedaDestino();
     let valor = await view.obterValor();
     let API_KEY = "ffb08fa4fc3d15150729cc7b";
@@ -15,7 +14,7 @@ export default async function conversor() {
         return view.exibirMensagemDeErro("Moedas devem ter 3 caracteres.");
     }
 
-    fetch(`https://v6.exchangerate-api.com/v6/${API_KEY}/pair/${moedaOrigem}/${moedaDestino}/${valor}`, {
+    await fetch(`https://v6.exchangerate-api.com/v6/${API_KEY}/pair/${moedaOrigem}/${moedaDestino}/${valor}`, {
         method: 'GET',
     }).then(response => {
         return response.json()
@@ -40,3 +39,5 @@ async function validarTamanhoMoeda(moeda) {
     }
     return true;
 }
+
+export default {executarConversao, obterMoedaOrigem: view.obterMoedaOrigem};
