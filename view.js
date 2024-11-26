@@ -22,8 +22,8 @@ export default {
     async exibirResultado(resultado) {
         let valor = resultado.conversion_result / resultado.conversion_rate;
 
-        console.log(`   ${resultado.base_code} ${valor} => ${resultado.target_code} ${resultado.conversion_result} \n
-                        Taxa: ${resultado.conversion_rate}`);
+        console.log(`${resultado.base_code} ${valor} => ${resultado.target_code} ${resultado.conversion_result.toFixed(2)}`);
+        console.log(`Taxa: ${resultado.conversion_rate.toFixed(6)}`);
     },
 
     async exibirMensagemDeErro(error) {
