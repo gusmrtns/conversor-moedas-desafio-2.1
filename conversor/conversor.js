@@ -1,4 +1,4 @@
-import view from './view.js';
+import view from '../view/view.js';
 
 async function executarConversao(moedaOrigem) {
 

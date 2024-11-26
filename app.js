@@ -1,5 +1,5 @@
-import conversor from './conversor.js';
-import view from './view.js';
+import conversor from './conversor/conversor.js';
+import view from './view/view.js';
 
 async function main() {
     console.log("=== Conversor de Moedas ===");
